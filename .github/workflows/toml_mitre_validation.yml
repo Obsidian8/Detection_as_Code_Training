@@ -15,5 +15,5 @@ jobs:
         with:
           python-version: '3.11.4'
 
-      - run: python detections/development/validation.py
-      - run: python detections/development/mitre.py
+      - run: python development/validation.py
+      - run: python development/mitre.py
