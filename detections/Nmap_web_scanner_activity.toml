@@ -18,7 +18,7 @@ event.dataset : "zeek.http" and *Nmap*
 [[rule.threat]] # Example Tactic, Technique, Sub-Technique
 framework = "MITRE ATT&CK"
 [[rule.threat.technique]]
-id = "T104678"
+id = "T1046"
 name = "Network Service Discovery"
 reference = "https://attack.mitre.org/techniques/T1046/"
 
