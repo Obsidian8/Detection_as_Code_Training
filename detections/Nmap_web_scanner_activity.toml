@@ -24,7 +24,7 @@ reference = "https://attack.mitre.org/techniques/T1046/"
 
 
 [rule.threat.tactic]
-id = "TA00078"
+id = "TA0007"
 name = "Discovery"
 reference = "https://attack.mitre.org/tactics/TA0007/"
 
