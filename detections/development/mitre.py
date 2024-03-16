@@ -1,6 +1,7 @@
 import requests
 import os
 import tomllib
+import sys
 
 url = "https://raw.githubusercontent.com/mitre/cti/master/enterprise-attack/enterprise-attack.json"
 headers = {
@@ -10,6 +11,8 @@ headers = {
 mitre_data = requests.get(url,headers=headers).json()
 mitre_mapped = {}
 # def get_mapping(mitre_data):
+
+failure = 0
 
 for object in mitre_data['objects']:
     tactics = []
@@ -78,18 +81,21 @@ for file in alert_data:
         # check to ensure MITRE Tactics exist
         if tactic not in mitre_tactic_list:
             print("The MITRE Tactic supplied does not exist: " + "\"" + tactic + "\"" + " in " + file)
+            failure = 1
         # Check to make sure the MITRE Technique ID is valid
         try:
             if mitre_mapped[technique_id]:
                 pass
         except KeyError:
             print("Invalid MITRE TID: " + "\"" + technique_id + "\"" + " in " + file)
+            failure = 1
         # Check to see if the MITRE TID + Name combination is Valid
         try:
             mitre_name = mitre_mapped[technique_id]['name']
             alert_name = line['technique_name']
             if alert_name != mitre_name:
                 print("MITRE Technique ID and Name Mismatch in " + file + " EXPECTED: " + "\"" + mitre_name + "\"" + " GIVEN: " + "\"" + alert_name + "\"")
+                failure = 1
         except KeyError:
             pass
 
@@ -99,8 +105,8 @@ for file in alert_data:
                 mitre_name = mitre_mapped[subtechnique_id]['name']
                 alert_name = line['subtechnique_name']
                 if alert_name != mitre_name:
-                    print(
-                        "MITRE Sub-Technique ID and Name Mismatch in " + file + " EXPECTED: " + "\"" + mitre_name + "\"" + " GIVEN: " + "\"" + alert_name + "\"")
+                    print("MITRE Sub-Technique ID and Name Mismatch in " + file + " EXPECTED: " + "\"" + mitre_name + "\"" + " GIVEN: " + "\"" + alert_name + "\"")
+                    failure = 1
         except KeyError:
             pass
 
@@ -108,8 +114,11 @@ for file in alert_data:
         try:
             if mitre_mapped[technique_id]['deprecated'] == True:
                 print("Deprecated MITRE Technique ID: " + "\"" + technique_id + "\"" + " in " + file)
+                failure = 1
         except KeyError:
             pass
 
         # Check
 
+if failure != 0:
+    sys.exit(1)
