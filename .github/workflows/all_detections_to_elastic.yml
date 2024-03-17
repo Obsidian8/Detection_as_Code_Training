@@ -1,6 +1,6 @@
 
 
-name: TOML/MITRE Validation
+name: All Detections To Elastic
 
 on:
   workflow_dispatch:
