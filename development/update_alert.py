@@ -12,15 +12,18 @@ headers = {
     'Authorization': 'ApiKey ' + api_key
 }
 
+changed_files = os.environ["CHANGED_FILES"]
+
 data = ""
 
 for root, dirs, files in os.walk("detections/"):
     for file in files:
-        data = "{\n"
-        if file.endswith(".toml"):
-            full_path = os.path.join(root, file)
-            with open(full_path, "rb") as toml:
-                alert = tomllib.load(toml)
+        if file in changed_files:
+            data = "{\n"
+            if file.endswith(".toml"):
+                full_path = os.path.join(root, file)
+                with open(full_path, "rb") as toml:
+                    alert = tomllib.load(toml)
 
                 if alert['rule']['type'] == "query": # query alert
                     required_fields = ['author', 'description', 'name', 'rule_id', 'risk_score', 'severity', 'type', 'query', 'threat']
