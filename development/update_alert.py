@@ -52,7 +52,7 @@ for root, dirs, files in os.walk("detections/"):
                             data += "  " + "\"" + field + "\": " + str(alert['rule'][field]).replace("'","\"") + "," + "\n"
 
                 data += "  \"enabled\": true\n}"
-                #print(data)
+
         rule_id = alert['rule']['rule_id']
         update_url = url + "?rule_id=" + rule_id
 
