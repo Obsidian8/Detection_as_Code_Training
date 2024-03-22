@@ -66,7 +66,7 @@ for root, dirs, files in os.walk("C:\\Users\\Axel_\\PycharmProjects\\CI_CD\\Dete
                 list[file] = obj
 
 
-output_path = "C:\\Users\\Axel_\\PycharmProjects\\CI_CD\Detection_Engineering\\metrics\\recentdetections.md"
+output_path = "metrics/"
 #
 outF = open(output_path, "w")
 outF.write("# Detection Report\n")
