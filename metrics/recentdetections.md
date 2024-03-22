@@ -3,14 +3,13 @@
 ### New Alerts
 | Alert | Date | Author | Risk Score | Severity |
 | --- | --- | --- | --- | --- |
-|Another Example Alert|2024/03/15|['me']|50|medium|
+|Example Alert|2024/03/15|['3292406328']|50|medium|
 ## Last Month
 ### Alerts
 | Alert | Date | Author | Risk Score | Severity |
 | --- | --- | --- | --- | --- |
-|example elastic rule|2024/02/15|['Elastic']|47|medium|
+|Nmap Web Scanner Activity|2024/02/15|['3292406328']|25|low|
 ## Two Months Ago
 ### Alerts
 | Alert | Date | Author | Risk Score | Severity |
 | --- | --- | --- | --- | --- |
-|Exporting Exchange Mailbox via PowerShell|2024/01/15|['Elastic']|47|medium|
