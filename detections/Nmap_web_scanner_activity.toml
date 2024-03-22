@@ -7,7 +7,7 @@ description = "test"
 from = "now-5m" # this is default value, change as needed
 name = "Nmap Web Scanner Activity"
 
-risk_score = 30
+risk_score = 29
 severity = "low"
 
 type = "query"
