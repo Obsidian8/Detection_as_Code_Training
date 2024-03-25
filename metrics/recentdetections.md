@@ -8,7 +8,7 @@
 ### Alerts
 | Alert | Date | Author | Risk Score | Severity |
 | --- | --- | --- | --- | --- |
-|Nmap Web Scanner Activity|2024/02/15|['3292406328']|25|low|
+|Nmap Web Scanner Activity|2024/02/15|['3292406328']|29|low|
 ## Two Months Ago
 ### Alerts
 | Alert | Date | Author | Risk Score | Severity |
