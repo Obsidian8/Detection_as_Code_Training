@@ -2,8 +2,7 @@ name: Metrics
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * MON"
+  
 
 jobs:
   metrics:
