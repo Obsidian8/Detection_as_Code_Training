@@ -14,17 +14,17 @@ type = "query"
 rule_id = "00000000-0000-0000-0000-000000000002"
 
 query = '''
-event.dataset : "zeek.http" and *Nmap*
+event.dataset : "zeek.http" and *test query*
 '''
 
 
 [[rule.threat]] # Example Tactic, Technique, Sub-Technique
 framework = "MITRE ATT&CK"
+
 [[rule.threat.technique]]
 id = "T1046"
 name = "Network Service Discovery"
 reference = "https://attack.mitre.org/techniques/T1046/"
-
 
 [rule.threat.tactic]
 id = "TA0007"
